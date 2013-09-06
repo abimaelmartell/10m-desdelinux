@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DesdeLinux10m</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"  />
+    <link href="/assets/css/lib/normalize.css" rel="stylesheet" />
+    <link href="/assets/css/lib/jquery.fancybox.css" rel="stylesheet" />
+    <link href="/assets/css/app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class='header_content container'>
+        <h1><a class="ir logo" href="/">DesdeLinux</a></h1>
+      </div>
+      <div class='home_banner'></div>
+    </header>
+    <div class='main_content container'>
+      <h2>Últimos Videos</h2>
+      <ul class='videos_list'>
+      </ul>
+      <a class="btn_all_videos" href="/videos">Ver todos los videos</a>
+    </div>
+    <footer>
+      <div class='tweet'>
+        <p>Tenemos un nuevo video en @10enDesdeLinux: Brackets vs Sublime Text3, por @elavdeveloper</p>
+      </div>
+    </footer>
+    <script type="text/template" id="list_template">
+        <li>
+          <a href="<%= video_url %>"><figure>
+            <img alt="330x300" src="<%= image %>" />
+            <figcaption><%= title %></figcaption>
+          </figure>
+          </a>
+        </li>
+    </script>
+    <script src="/assets/js/lib/jquery.js"></script>
+    <script src="/assets/js/lib/underscore.js"></script>
+    <script src="/assets/js/lib/jquery.fancybox.js"></script>
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>
