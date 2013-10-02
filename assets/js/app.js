@@ -38,7 +38,7 @@
           video = {
             title: video_obj.title,
             image: video_obj.thumbnail_large,
-            url: "/#!/video/" + video_obj.id
+            url: "#!/video/" + video_obj.id
           };
           videos.push(video);
         });
