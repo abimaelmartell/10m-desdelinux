@@ -1,5 +1,5 @@
 (function ($) {
-  var json_url = "http://vimeo.com/api/v2/16180379/videos.json?callback=?";
+  var json_url = "http://vimeo.com/api/v2/canonicaldesign/videos.json?callback=?";
   var listTemplate = _.template($("#list_template").html());
   var $list = $('ul.videos_list');
 
@@ -16,6 +16,8 @@
     _.each(data, function (e) {
       renderVideo(e);
     });
+
+    $('.loading').remove();
   });
 
   $(function () {
