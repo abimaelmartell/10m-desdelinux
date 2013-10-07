@@ -24,7 +24,6 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Gruntfile.js', 'assets/js/app.js'],
       options: {
-        // options here to override JSHint defaults
         globals: {
           jQuery: true,
           window: true,
@@ -35,9 +34,10 @@ module.exports = function(grunt) {
       }
     },
     cssmin: {
-      add_banner: {
+      minify: {
         options: {
-          banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy h:MM:ss") %> */\n'
+          banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy h:MM:ss") %> */',
+          keepSpecialComments: 0
         },
         files: {
           'assets/min/app.css': ['assets/css/lib/*.css', 'assets/css/*.css']

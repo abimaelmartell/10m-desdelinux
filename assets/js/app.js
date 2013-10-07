@@ -1,10 +1,11 @@
-/*global window, jQuery*/
-(function ($, window) {
+/*global window, Zepto, Mustache*/
+(function ($, Mustache, window) {
   var DesdeLinux = function () {
-    var homeTemplate = _.template($("#home_template").html()),
-      videoTemplate = _.template($("#video_template").html()),
+    var homeTemplate = $("#home_template").html(),
+      videoTemplate = $("#video_template").html(),
       $container = $('.main_content'),
-      _this = this;
+      _this = this,
+      vimeoGroup = "shortfilms";
 
     this.current_route = null;
 
@@ -32,9 +33,9 @@
     };
 
     this.home = function () {
-      $.getJSON("http://vimeo.com/api/v2/group/shortfilms/videos.json?callback=?", function (data) {
+      $.getJSON("http://vimeo.com/api/v2/group/"+ vimeoGroup +"/videos.json?callback=?", function (data) {
         var videos = [], video;
-        _.each(data, function (video_obj) {
+        $.each(data, function (index, video_obj) {
           video = {
             title: video_obj.title,
             image: video_obj.thumbnail_large,
@@ -42,7 +43,7 @@
           };
           videos.push(video);
         });
-        $container.html(homeTemplate({videos: videos}));
+        $container.html(Mustache.render(homeTemplate, {videos: videos}));
         $('.loading').hide();
       });
     };
@@ -50,15 +51,13 @@
     this.video = function (video_id) {
       $.getJSON("http://vimeo.com/api/v2/video/" + video_id +  ".json?callback=?", function (data) {
         var video = data[0];
-        $container.html(videoTemplate({
-          title: video.title,
-          video_id: video.id
-        }));
+        $container.html(Mustache.render(videoTemplate, {title: video.title, video_id: video.id}));
         $('.loading').hide();
       });
     };
+
+    return this.init();
   };
 
-  var app = new DesdeLinux();
-  app.init();
-}(jQuery, window));
+  return new DesdeLinux();
+}(Zepto, Mustache, window));
