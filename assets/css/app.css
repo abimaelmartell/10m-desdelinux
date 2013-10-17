@@ -97,6 +97,7 @@ header ul.social li{
     width: 23px;
     height: 23px;
     margin-left: 10px;
+    list-style: none;
 }
 
 header ul.social li a{
