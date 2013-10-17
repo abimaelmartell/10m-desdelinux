@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis:300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 body { font-family: 'Open Sans', sans-serif; text-align: center; }
 
 .ir {
@@ -24,7 +27,7 @@ body { font-family: 'Open Sans', sans-serif; text-align: center; }
 
 a { text-decoration: none; }
 
-h2 { border-bottom: 1px solid #999; text-transform: uppercase; }
+.main_content h2 { border-bottom: 1px solid #999; text-transform: uppercase; }
 
 .container { margin: 0 auto; text-align: left; width: 710px; }
 
@@ -52,21 +55,81 @@ header h1 {
 header h1 .logo {
     background: url(../img/logo.png) center no-repeat;
     display: block;
-    height: 60px;
-    width: 245px;
+    height: 61px;
+    width: 252px;
 }
 
 header .home_banner {
     background: linear-gradient(to bottom,#5a99ed 0%,#4d83cb 100%);
+    position: relative;
     border-bottom: 2px solid #466fa6;
     border-top: 2px solid #4d83cb;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#5a99ed',endColorstr='#4d83cb',GradientType=0);
     height: 210px;
 }
 
+header .home_banner .container{
+    background: url(../img/logo_banner.png) right center no-repeat;
+    height: 100%;
+    border-top: 1px solid transparent;
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+}
+
+header .home_banner .container .titles{
+    width: 400px;
+    text-align: right;
+}
+
+header .home_banner .container .titles h2{
+    font-size: 35px;
+}
+
+header .home_banner .container .titles h3{
+    font-size: 24px;
+}
+
+header ul.social{
+  float: right;
+  margin-top: 40px;
+}
+
+header ul.social li{
+    float: left;
+    width: 23px;
+    height: 23px;
+    margin-left: 10px;
+}
+
+header ul.social li a{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+header ul.social li a.facebook{
+    background: url(../img/facebook.png) center center no-repeat;
+}
+
+header ul.social li a.twitter{
+    background: url(../img/twitter.png) center center no-repeat;
+}
+
+header ul.social li a.vimeo{
+    background: url(../img/vimeo.png) center center no-repeat;
+}
+
 .main_content { padding: 0 0 30px; }
 
-footer { background: #f3f3f3; padding: 30px 0; }
+footer {
+    background: #f3f3f3;
+    padding: 30px 0;
+}
+
+footer p{
+    font-size: 12px;
+    text-align: center;
+}
 
 .videos_list { list-style: none; margin: 0; padding: 0; }
 
@@ -147,7 +210,12 @@ footer { background: #f3f3f3; padding: 30px 0; }
     .videos_list li{
         margin-left: 0 !important;
     }
+
+    header ul.social{
+        display: none;
+    }
 }
+
 
 @media only screen and (min-width : 1100px) {
     .container{
@@ -162,3 +230,4 @@ footer { background: #f3f3f3; padding: 30px 0; }
         margin-left: 0;
     }
 }
+
