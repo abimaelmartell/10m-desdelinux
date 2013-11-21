@@ -1,11 +1,13 @@
 /*global window, Zepto, Mustache*/
-(function ($, Mustache, window) {
+(function ($, Mustache, window, undefined) {
   var DesdeLinux = function () {
     var homeTemplate = $("#home_template").html(),
       videoTemplate = $("#video_template").html(),
       $container = $('.main_content'),
       _this = this,
       vimeoGroup = "210882";
+
+    this.pagesCache = {};
 
     this.current_route = null;
 
@@ -21,12 +23,16 @@
       if (route === this.current_route) {
         return false;
       }
-      var video_id = route.match(/^#!\/video\/(\d+)/);
-      $('.loading').show();
-      if (video_id) {
-        this.video(video_id[1]);
-      } else {
-        this.home();
+      if(route in this.pagesCache){
+        $container.html(this.pagesCache[route]);
+      }else{
+        var video_id = route.match(/^#!\/video\/(\d+)/);
+        $('.loading').show();
+        if (video_id) {
+          this.video(video_id[1]);
+        } else {
+          this.home();
+        }
       }
       $(window).scrollTop(0);
       this.current_route = route;
@@ -43,7 +49,9 @@
           };
           videos.push(video);
         });
-        $container.html(Mustache.render(homeTemplate, {videos: videos}));
+        var content = Mustache.render(homeTemplate, {videos: videos});
+        $container.html(content);
+        _this.pagesCache['#!/'] = content;
         $('.loading').hide();
       });
     };
@@ -51,7 +59,9 @@
     this.video = function (video_id) {
       $.getJSON("http://vimeo.com/api/v2/video/" + video_id +  ".json?callback=?", function (data) {
         var video = data[0];
-        $container.html(Mustache.render(videoTemplate, {title: video.title, video_id: video.id}));
+        var content = Mustache.render(videoTemplate, {title: video.title, video_id: video.id});
+        $container.html(content);
+        _this.pagesCache['#!/video/' + video_id ] = content;
         $('.loading').hide();
       });
     };
@@ -59,5 +69,5 @@
     return this.init();
   };
 
-  return new DesdeLinux();
+  window.app = new DesdeLinux();
 }(Zepto, Mustache, window));
