@@ -50,7 +50,7 @@ header h1 {
 }
 
 header h1 .logo {
-    background: url(../img/logo.png) center no-repeat;
+    background: url(../images/logo.png) center no-repeat;
     display: block;
     height: 61px;
     width: 252px;
@@ -66,7 +66,7 @@ header .home_banner {
 }
 
 header .home_banner .container{
-    background: url(../img/logo_banner.png) right center no-repeat;
+    background: url(../images/logo_banner.png) right center no-repeat;
     height: 100%;
     border-top: 1px solid transparent;
     color: #fff;
@@ -107,15 +107,15 @@ header ul.social li a{
 }
 
 header ul.social li a.facebook{
-    background: url(../img/facebook.png) center center no-repeat;
+    background: url(../images/facebook.png) center center no-repeat;
 }
 
 header ul.social li a.twitter{
-    background: url(../img/twitter.png) center center no-repeat;
+    background: url(../images/twitter.png) center center no-repeat;
 }
 
 header ul.social li a.vimeo{
-    background: url(../img/vimeo.png) center center no-repeat;
+    background: url(../images/vimeo.png) center center no-repeat;
 }
 
 .main_content { padding: 0 0 30px; }
