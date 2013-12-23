@@ -1,14 +1,14 @@
 <h2>Últimos Videos</h2>
 <ul class='videos_list'>
-  {{#videos}}
+  <% _.each(videos, function(video){ %>
   <li>
-    <a href="{{url}}">
+    <a href="/#/video/<%= video.id %>">
       <figure>
-        <img alt="330x300" src="{{image}}" />
-        <figcaption>{{title}}</figcaption>
+        <img alt="330x300" src="<%= video.thumbnail_large %>" />
+        <figcaption><%= video.title %></figcaption>
       </figure>
     </a>
   </li>
-  {{/videos}}
+  <% }); %>
 </ul>
 <a class="btn_all_videos" href="http://vimeo.com/groups/210882">Ver todos los videos</a> 

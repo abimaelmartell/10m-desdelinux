@@ -1,1 +1,2 @@
-assets/min/*
+templates/compiled.js
+node_modules
