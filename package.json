@@ -1,9 +1,0 @@
-{
-  "name": "10-minutos-desdelinux",
-  "version": "0.0.2",
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-jst": "~0.5.1"
-  }
-}

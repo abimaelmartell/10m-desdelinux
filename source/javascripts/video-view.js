@@ -3,7 +3,7 @@ var app = app || {};
 (function(){
   app.VideoView = Backbone.View.extend({
     el: '.main_content',
-    template: JST['templates/video.jst'],
+    template: JST['templates/video'],
     initialize: function(){
       this.render();
     },

@@ -61,7 +61,6 @@ header .home_banner {
     position: relative;
     border-bottom: 2px solid #466fa6;
     border-top: 2px solid #4d83cb;
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#5a99ed',endColorstr='#4d83cb',GradientType=0);
     height: 210px;
 }
 
